@@ -10,25 +10,23 @@ class CoffeeShop{
     
     addOrder(name){
         for(let item of this.menu){
-            for (let key in item){
-                if(item[key] === name){
-                    this.order.push(name)
-                }else{
-                    return 'This item is currently unavailable'
-                }
+            if(item.name === name){
+                this.order.push(name)
+                return 'added'
+            }else{
+                return 'This item is currently unavailable'
             }
         }
     }
     fulfillOrder(item){
-        if(this.order.length === 0){
-            return `The ${item} is ready`
+        if(this.order.length !== 0){
+           
+            return `The ${item} is rea'dy. List Order : ${this.order}`
         }else{
-            return 'All orders have been fulfilld'
+            return `All orders have been fulfilld.  List Order : ${this.order}`
         }
     }
-    listOrders(){
-       return this.order
-    }
+ 
     dueAmount(){
         let sum = 0
         for(let element of this.order){
@@ -54,5 +52,7 @@ class CoffeeShop{
 
 }
 let tcs = new CoffeeShop()
-console.log(tcs.addOrder('hot cocoa'));
-console.log(tcs.addOrder('iced tea'));
+tcs.addOrder('coffee')
+console.log(tcs.addOrder('coffee'));
+console.log(tcs.fulfillOrder('coffee'));
+console.log(tcs.dueAmount());
