@@ -1,27 +1,27 @@
 // Create a function named myInterval, which takes two parameters, a callback function
 // and an interval duration(milliseconds). After calling the myInterval function, the
 // callback function must be executed every given interval duration
-// let myInterval = function(cb, dalay = 100){
-//   cb = function(){
-//     return setInterval(() =>  dalay, dalay)
-//   }
-//   return cb()
-// }
-//console.log(myInterval());
-// function myFunction(param){
-//   return new Promise((res, rej) => {
-//     setTimeout(() => {
-//       if(typeof param === 'string'){
-//         res(param.toUpperCase())
-//       }else{
-//         rej(param)
-//       }
-//     } , 500)
-//   }).then(res => console.log(res)).catch(rej => console.log(rej))
-// //սենց գրելուց ճիշտա աշխատում բայց երբ return եմ անում pending է տալիս ?
-// //.then(res => res).catch(rej => rej)
-// }
-// myFunction(123)
+let myInterval = function(cb, dalay = 100){
+  cb = function(){
+    return setInterval(() =>  dalay, dalay)
+  }
+  return cb()
+}
+console.log(myInterval());
+function myFunction(param){
+  return new Promise((res, rej) => {
+    setTimeout(() => {
+      if(typeof param === 'string'){
+        res(param.toUpperCase())
+      }else{
+        rej(param)
+      }
+    } , 500)
+  }).then(res => console.log(res)).catch(rej => console.log(rej))
+//սենց գրելուց ճիշտա աշխատում բայց երբ return եմ անում pending է տալիս ?
+//.then(res => res).catch(rej => rej)
+}
+myFunction(123)
 // Task 2
 // Create a function that takes in a single parameter and returns a new promise. Using
 // setTimeout, after 500 milliseconds, the promise will either resolve or reject some value. If
