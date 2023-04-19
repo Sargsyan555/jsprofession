@@ -7,14 +7,14 @@ addUp(13) ➞ 91
 
 addUp(600) ➞ 180300
 */
-function addUp(number){
-    if(number < 2){
-        return number
-    }
-    return number + addUp(number - 1)
-}
+// function addUp(number){
+//     if(number < 2){
+//         return number
+//     }
+//     return number + addUp(number - 1)
+// }
 
-console.log(addUp(4));
+// console.log(addUp(4));
 /*
 A value is omnipresent if it exists in every subarray inside the main array.
 To illustrate:
@@ -139,44 +139,62 @@ function missingNum(){
 //     return arr
 // }
 // console.log(selectionSort(arr));
-// function mergSort(data1, data2){
-//     let result = []  // j->2 i-> 4
-//     let i = 0 //data1
-//     let j = 0 // data2
-//     while(i < data1.length  && j < data2.length){
-//         if(data1[i] < data2[j]){
-//             result.push(data1[i])
-//             i++
-//         }else{
-//             result.push(data2[j])
-//             j++
-//         }
-//     }
-//     if(i < data1.length ){
-//         let sliced = data1.slice(i)
-//         result.push(...sliced)
+function mergSort(data1, data2){
+    let result = []  //
+    let i = 0 //data1
+    let j = 0 // data2
+    while(i < data1.length  && j < data2.length){
+        if(data1[i] < data2[j]){
+            result.push(data1[i])
+            i++
+        }else{
+            result.push(data2[j])
+            j++
+        }
+    }
+    if(i < data1.length ){
+        let sliced = data1.slice(i)
+        result.push(...sliced)
 
-//     }
-//     if(j < data2.length ){
-//         let sliced = data2.slice(j)
-//         result.push(...sliced)
-//     }
-//     return result
-// }
-// function divied(data){
+    }
+    if(j < data2.length ){
+        let sliced = data2.slice(j)
+        result.push(...sliced)
+    }
+    console.log(result + ' esa');
+
+    return result
+}
+function divied(data){
+    if(data.length < 2){
+        return data
+    }else{
+        let len =  Math.floor(data.length / 2)
+        console.log(data);
+        let arr1 = divied(data.slice(0, len))
+        console.log(arr1 + '2');
+        let arr2 = divied(data.slice(len))
+        console.log(arr2);
+        return mergSort(arr1, arr2)
+    }
+}
+console.log(divied([8, 5, 7, 9, 6, 3]));
+
+//Quick Sort
+//[1, 2, 5, 9, 7, 3, 6, 4]
+// [1, 2, 3] [4] [5, 9, 7, 6]
+// [1,2] [3] [4] [5] [6][9]
+// function qs_esey(data){
 //     if(data.length < 2){
 //         return data
-//     }else{
-//         let len =  Math.floor(data.length / 2)
-//         let arr1 = divied(data.slice(0, len))
-//         let arr2 = divied(data.slice(len))
-//         return mergSort(arr1, arr2)
 //     }
+//     let pivod = data.pop()
+//     let leftHeand = data.filter((item) => item < pivod)
+//     let rightHeand = data.filter((item) => item > pivod)
+//     return qs_esey(leftHeand).concat(pivod, qs_esey(rightHeand))
+
 // }
-// console.log(divied([8, 5, 7, 9, 6, 3]));
-
-
-
+// console.log(qs_esey([1, 2, 5, 9, 7, 3, 6, 4]));
 
 
 

@@ -1,4 +1,6 @@
 
+//Task 1
+//Write a recursive function to determine whether all digits of the number are odd or not.
 // function areAllEvenNumbers(number){
 //     let num = number % 10
 //    if(num % 2){
@@ -36,7 +38,8 @@
 //     }
 // }
 // console.log(findMinimalPositive([5, -9, 2, 11, -1, 10]));
-//TAsk 3
+
+//Task 3
 // Given an array of numbers which is almost sorted in ascending order.  Find the index 
 //where sorting order is violated.
 
@@ -53,9 +56,20 @@
 // }
 // console.log(violatedSortingOrder([1, 2, 3, 4, -1]));
 
+//Task 4
+// Given an array. Write a recursive function that removes the first element and returns the 
+// given array. (without using ​arr.shift()​)
+function removeFirstElement(arr){
+    if(arr.length < 2){
+        return arr
+    }else{
+        arr.pop()
+         return arr.push(removeFirstElement(arr))
+    }
+}
+console.log(removeFirstElement([1, 2, 3, 4]));
 
-
-
+//Task 5
 // function fakeFlat(arr){
 //     let filtereedArray = arr.filter((item) => Array.isArray(item))
 //     if(filtereedArray.length === 0){
